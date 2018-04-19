@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-// import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
-import {Form, FormGroup, Input, Button, FormFeedback} from 'reactstrap'
+import {Form, FormGroup, Input, Button, FormFeedback, Label, FormText, Table} from 'reactstrap'
 import { connect } from 'react-redux'
-import {Container, Row, Col} from 'reactstrap'
 
 
 class Search extends Component {
@@ -36,6 +34,9 @@ class Search extends Component {
       //do nothing for now
     }
     else {
+      console.log('====================================');
+      console.log("here");
+      console.log('====================================');
       this.props.fetchData({text: this.state.searchValue})
     }
   }
@@ -60,6 +61,41 @@ class Search extends Component {
 
 
   searchForm(){
+
+    const greyDivStyle = {
+      backgroundColor: '#f6f6f6',
+      padding: '50px',
+      margin: '0'
+    };
+
+    return (
+      <div style={greyDivStyle}>
+      <Form>
+        <FormGroup>
+          <Label> <h3> Enter search text </h3> </Label>
+          <Input 
+            invalid = {this.invalidInput()}
+            value= {this.state.searchValue}
+            onChange={this.onChange}
+            placeholder="E.g Raulfia serpentina"/>
+          <FormFeedback>Invalid Input</FormFeedback>
+          <FormText>Input text must be ASCII.</FormText>
+        </FormGroup>
+        <Button type="submit" onClick={ this.onSubmit }>
+                 Submit
+        </Button>
+        {' '}
+        <Button type="button" onClick={ this.onClear }>
+            Clear
+        </Button>
+      </Form> 
+      </div>
+    );
+
+  }
+
+  renderFullForm(){
+
     const whiteDivStyle = {
     paddingLeft: '50px',
     paddingRight: '50px',
@@ -67,89 +103,57 @@ class Search extends Component {
     margin: '0'
     };
 
-
-    let searchForm = (
-      <div style={whiteDivStyle}>
-      <Container fluid>
-      <Row className="show-Container">
-        <h4> Enter search text</h4>
-      </Row>
-      <Row className="show-Container">
-          <Form horizontal onSubmit={this.onSubmit}>
-          <FormGroup>
-            <Input 
-              type = "text"
-              invalid = {this.invalidInput()}
-              value= {this.state.searchValue}
-              onChange={this.onChange}/>
-            <FormFeedback> Input text must be ASCII</FormFeedback>
-          </FormGroup>
-          </Form>
-      </Row>
-      </Container>
-      </div>
+    let resultTable =(
+      <Table>
+      <tbody>
+        <tr>
+          <th scope="row">Name Submitted</th>
+          <td>{this.props.searchData.NameSubmitted}</td>
+        </tr>
+        <tr>
+          <th scope="row">Name Matched</th>
+          <td>{this.props.searchData.NameMatched}</td>
+        </tr>
+        <tr>
+          <th scope="row">Accepted Name</th>
+          <td>{this.props.searchData.AcceptedName}</td>
+        </tr>
+        <tr>
+          <th scope="row">Taxonomic Status</th>
+          <td>{this.props.searchData.TaxonomicStatus}</td>
+        </tr>
+        <tr>
+          <th scope="row">uBiotaID</th>
+          <td>{this.props.searchData.uBiotaID}</td>
+        </tr>
+      </tbody>
+    </Table>
     );
 
-    return searchForm;
+    let fullForm = (
+      <div>
+      {this.searchForm()}
+      <Label style={whiteDivStyle}> <h3> Results </h3> </Label>
+      <div style={whiteDivStyle}>
+        {resultTable}
+      </div>
+      </div>
+    );
+    return fullForm
   }
-
-  // renderFullForm(){
-
-  //   const whiteDivStyle = {
-  //   paddingLeft: '50px',
-  //   paddingRight: '50px',
-  //   margin: '0'
-  //   };
-
-  //   let searchForm = this.searchForm()
-
-  //   let resultTable = (
-  //     <div style={whiteDivStyle}>
-  //     <Container fluid>
-  //     <Row className="show-Container">
-  //       <h3> Results </h3>
-  //     </Row>
-  //     <Row className="top-buffer"/>
-  //     <Row className="show-Container">
-  //       <BootstrapTable exportCSV data={ this.props.searchData } search>
-  //       <TableHeaderColumn dataField='Id' width='100px' isKey={ true }>Id</TableHeaderColumn>
-  //       <TableHeaderColumn dataField='Name'>Name</TableHeaderColumn>
-  //       <TableHeaderColumn dataField='Start' width='100px'>Start</TableHeaderColumn>
-  //       <TableHeaderColumn dataField='End' width='100px' >End</TableHeaderColumn>
-  //       </BootstrapTable>
-  //     </Row>
-  //     </Container>
-  //     </div>
-  //   );
-
-  //   let fullForm = (
-  //     <Container fluid>
-  //     <Row className="show-Container">
-  //       {SearchForm}
-  //     </Row>
-  //     <Row className="show-Container">
-  //       {resultTable}
-  //     </Row>
-  //     </Container>
-  //   );
-  //   return fullForm
-  // }
 
   render() {
-    return (this.searchForm());
+     if( this.props.searchData.length !== 0){
+      return (
+        this.renderFullForm()
+      );
+    }else{
+      return (
+        this.searchForm()
+      );
+    }
   }
-
-
-  //  if( this.props.searchData.length !== 0){
-  //     return (
-  //       this.renderFullForm()
-  //     );
-  //   }else{
-  //     return (
-  //       this.renderSeachForm()
-  //     );
-  //   }
-  // }
+ 
 }
 
 function mapStatetoProps(state){

@@ -10,7 +10,8 @@
     "reactstrap": "^5.0.0",
     "bootstrap": "^4.0.0",
     "redux": "^4.0.0",
-    "redux-saga": "^0.16.0"
+    "redux-saga": "^0.16.0",
+    "react-bootstrap-table-next": "^0.1.8"
   },
   "scripts": {
     "start": "react-scripts start",

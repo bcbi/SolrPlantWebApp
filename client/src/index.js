@@ -10,7 +10,8 @@ import mainReducer from './Reducers'
 import watchFetchSearchData from './Sagas.js'
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.css';
-
+import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
+import 'bootstrap/dist/css/bootstrap.css';
 
 //saga middleware
 const sagaMiddleware = createSagaMiddleware()
