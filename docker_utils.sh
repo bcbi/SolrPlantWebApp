@@ -13,7 +13,7 @@ if ! git diff-index --quiet HEAD; then
 fi
 
 
-if TRAVIS; then
+if $TRAVIS; then
    echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
    TAG=${TRAVIS_TAG}
 else
@@ -31,7 +31,7 @@ if [ "$1" == "build-and-push" ]; then
     docker push ${REPOSITORY}/${IMAGE_NAME}:latest
     echo "Pushed ${REPOSITORY}/${IMAGE_NAME}:${TAG} and :latest"
 elif [ "$1" == "run-dev" ]; then
-    docker run -p 5050:5050 --name ${IMAGE_NAME} ${REPOSITORY}/${IMAGE_NAME}
+    docker run -p 3000:3000 --name ${IMAGE_NAME} ${REPOSITORY}/${IMAGE_NAME}
 elif [ "$1" == "rm" ]; then
     docker rm ${IMAGE_NAME}
 else
