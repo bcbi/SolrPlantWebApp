@@ -1,6 +1,6 @@
 
 function search(query) {
-  return fetch(`http://bcbi.brown.edu/solrplant_api/?plantname=${query}`, {
+  return fetch(`https://bcbi.brown.edu/solrplant_api/?plantname=${query}`, {
     accept: 'html/text',
   }).then(checkStatus)
     .then(parseText);

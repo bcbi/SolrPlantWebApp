@@ -12,6 +12,11 @@ WORKDIR /usr/src/solrplant_web_app
 # Bundle app source
 COPY . /usr/src/solrplant_web_app
 
+# Clean up build directories if they were copied from local 
+RUN rm -rfv build
+RUN rm -rfv node_modules
+RUN rm package-lock.json
+
 # Install global static server
 RUN npm install -g serve
 
