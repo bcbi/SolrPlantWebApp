@@ -13,7 +13,7 @@ if ! git diff-index --quiet HEAD; then
 fi
 
 
-if $TRAVIS; then
+if TRAVIS; then
    echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
    TAG=${TRAVIS_TAG}
 else
