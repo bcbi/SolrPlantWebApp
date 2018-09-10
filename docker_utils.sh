@@ -25,7 +25,7 @@ fi
 echo "Tag: ${TAG}"
 
 if [ "$1" == "build-and-push" ]; then
-    docker build -f Dockerfile --tag=${REPOSITORY}/${IMAGE_NAME}:${TAG} .
+    docker build --tag=${REPOSITORY}/${IMAGE_NAME}:${TAG} .
     docker push ${REPOSITORY}/${IMAGE_NAME}:${TAG}
     # docker tag ${REPOSITORY}/${IMAGE_NAME}:${TAG} ${REPOSITORY}/${IMAGE_NAME}:latest
     # docker push ${REPOSITORY}/${IMAGE_NAME}:latest

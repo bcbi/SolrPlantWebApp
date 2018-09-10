@@ -23,7 +23,7 @@ class About extends Component {
                  Solr-plant is also accessible via a REST-compliant web service.</p>
                  <h4>REST API Example:</h4>
                  <code>
-                 http://bcbi.brown.edu/solrplant_api/?plantname=Raulfia%20serpentina
+                 https://bcbi.brown.edu/solrplant_api/?plantname=Raulfia%20serpentina
                  </code>
            </div>
         );
