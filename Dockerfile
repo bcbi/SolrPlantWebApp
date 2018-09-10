@@ -1,5 +1,5 @@
 # Dockerfile used front end
-FROM node:9.11.1
+FROM node:10.5.0
 
 RUN node -v
 RUN npm -v
