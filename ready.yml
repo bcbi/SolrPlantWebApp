@@ -1,8 +1,6 @@
 repo:             SolrPlantWebApp
 site_name:        SolrPlant
-authors:
-  - name: Vivek Sharma
-    github_user: vsharma10
+maintainers:
   - name: Isabel Restrepo
     github_user: mirestrepo
 repo_url:         https://github.com/bcbi/SolrPlantWebApp 
