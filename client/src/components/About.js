@@ -20,10 +20,10 @@ class About extends Component {
                  This system is built leveraging fuzzy search capabilities of Apache Solr which is further enhanced by Smith-Waterman string alignment allowing resolution of misspelled names and variants.
                  </p>
                  <p>
-                 Solr-plant is also accessible via a REST-compliant web service.</p>
+                 Solr-plant is also accessible via a REST-compliant web service using POST requests of plain text.</p>
                  <h4>REST API Example:</h4>
                  <code>
-                 https://bcbi.brown.edu/solrplant_api/?plantname=Raulfia%20serpentina
+                 curl -d 'This sentence contains Raulfia serpentina, Mangifera indica and Arabidoopsis thaliana of plantae, glycine and fabaceae family in it' -H "Content-Type: text/plain" -X POST https://bcbi.brown.edu/solrplant_api/
                  </code>
            </div>
         );

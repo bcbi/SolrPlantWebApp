@@ -2,7 +2,7 @@
 echo $1
 
 REPOSITORY=bcbi
-IMAGE_NAME=solrplant_web_app
+IMAGE_NAME=solrplant_frontend
 
 # Bail if we're on a dirty git tree
 if ! git diff-index --quiet HEAD; then
@@ -31,7 +31,7 @@ if [ "$1" == "build-and-push" ]; then
     docker push ${REPOSITORY}/${IMAGE_NAME}:latest
     echo "Pushed ${REPOSITORY}/${IMAGE_NAME}:${TAG} and :latest"
 elif [ "$1" == "run-dev" ]; then
-    docker run -p 3000:3000 --name ${IMAGE_NAME} ${REPOSITORY}/${IMAGE_NAME}
+    docker run -it -p 3000:3000 --name ${IMAGE_NAME} ${REPOSITORY}/${IMAGE_NAME}:latest
 elif [ "$1" == "rm" ]; then
     docker rm ${IMAGE_NAME}
 else

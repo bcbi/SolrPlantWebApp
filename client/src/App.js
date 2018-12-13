@@ -13,10 +13,6 @@ class App extends Component {
         return (
            <div className='App'>
               <HeaderNavigation />
-              <Jumbotron>
-                  <h1 className="display-3"> Solr Plant </h1>
-                  <h3 > Brown Center for Biomedical Informatics </h3>
-              </Jumbotron>
               <About />
               <ConnectedSearch/>
             </div>

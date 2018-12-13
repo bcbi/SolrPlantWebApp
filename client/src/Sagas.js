@@ -10,14 +10,7 @@ function* fetchSearchData(action) {
   console.log(jsonObject);
   console.log('====================================');
   const result = yield put(Actions.changeSearchData(jsonObject));
-
-  // if it is from a redux-action, we get an object with error set not a thrown error
-  if (result !== undefined) {
-    const { error } = result;
-    if (error) {
-      throw result;
-    }
-  }
+  
   return result;
 }
 

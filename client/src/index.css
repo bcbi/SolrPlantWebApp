@@ -49,24 +49,8 @@ label {
   margin-right: 5px;
 }
 
-.navbar-brand>img {
-  padding: 0px 0px 0px 0px;
-  height: 60px
-}
-
-.jumbotron{
-  background-color: #ff0211 !important;
-  text-align: center;
-  color: #ffffff;
-  margin:0 !important;
-}
-
-.jumbotron-header {
-  padding-top: 2rem
-  /* padding-bottom: 2rem; */
-}
-.jumbotron-heading {
-  font-weight: 300 !important;
+.bcbi-logo {
+  width: 16vw;
 }
 
 .top50 { margin-top:50px; }

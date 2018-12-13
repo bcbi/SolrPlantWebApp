@@ -2,6 +2,21 @@ import React, { Component } from 'react';
 import {Form, FormGroup, Input, Button, FormFeedback, Label, FormText, Table} from 'reactstrap'
 import { connect } from 'react-redux'
 
+const tableStyles = [
+ {
+  paddingLeft: '50px',
+  paddingRight: '50px',
+  paddingTop: '20px',
+  margin: '0'
+  },
+  {
+    paddingLeft: '50px',
+    paddingRight: '50px',
+    paddingTop: '20px',
+    margin: '0',
+    backgroundColor: '#f6f6f6'
+  }
+]
 
 class Search extends Component {
 
@@ -77,7 +92,8 @@ class Search extends Component {
             invalid = {this.invalidInput()}
             value= {this.state.searchValue}
             onChange={this.onChange}
-            placeholder="E.g Raulfia serpentina"/>
+            type="textarea"
+            placeholder="E.g This sentence contains Raulfia serpentina, Mangifera indica and Arabidoopsis thaliana of plantae, glycine and fabaceae family in it"/>
           <FormFeedback>Invalid Input</FormFeedback>
           <FormText>Input text must be ASCII.</FormText>
         </FormGroup>
@@ -94,49 +110,56 @@ class Search extends Component {
 
   }
 
-  renderFullForm(){
-
-    const whiteDivStyle = {
-    paddingLeft: '50px',
-    paddingRight: '50px',
-    paddingTop: '20px',
-    margin: '0'
-    };
-
+  tableForm(i){
+  
+    let thisStyle = tableStyles[i%2]
+    console.log("Results: ", i)
     let resultTable =(
+      <div style={thisStyle} key={i}>
       <Table>
       <tbody>
         <tr>
-          <th scope="row">Name Submitted</th>
-          <td>{this.props.searchData.NameSubmitted}</td>
+          <th width="50%" scope="row">Name Submitted</th>
+          <td>{this.props.searchData[i].NameSubmitted}</td>
         </tr>
         <tr>
-          <th scope="row">Name Matched</th>
-          <td>{this.props.searchData.NameMatched}</td>
+          <th width="50%" scope="row">Name Matched</th>
+          <td>{this.props.searchData[i].NameMatched}</td>
         </tr>
         <tr>
-          <th scope="row">Accepted Name</th>
-          <td>{this.props.searchData.AcceptedName}</td>
+          <th width="50%" scope="row">Accepted Name</th>
+          <td>{this.props.searchData[i].AcceptedName}</td>
         </tr>
         <tr>
-          <th scope="row">Taxonomic Status</th>
-          <td>{this.props.searchData.TaxonomicStatus}</td>
+          <th width="50%" scope="row">Taxonomic Status</th>
+          <td>{this.props.searchData[i].TaxonomicStatus}</td>
         </tr>
         <tr>
-          <th scope="row">uBiotaID</th>
-          <td>{this.props.searchData.uBiotaID}</td>
+          <th width="50%" scope="row">uBiotaID</th>
+          <td>{this.props.searchData[i].uBiotaID}</td>
         </tr>
       </tbody>
     </Table>
+    </div>
     );
+
+    return resultTable
+
+  }
+
+  renderFullForm(){
+
+    let resultTables = []
+
+    for (var i = 0; i < this.props.searchData.length; i++) {
+      resultTables.push(this.tableForm(i));
+    }
 
     let fullForm = (
       <div>
       {this.searchForm()}
-      <Label style={whiteDivStyle}> <h3> Results </h3> </Label>
-      <div style={whiteDivStyle}>
-        {resultTable}
-      </div>
+      <Label style={tableStyles[0]}> <h3> Results </h3> </Label>
+        {resultTables}
       </div>
     );
     return fullForm
