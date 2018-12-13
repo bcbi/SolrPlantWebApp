@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Navbar, NavbarBrand } from 'reactstrap';
+import { Navbar, Nav, NavItem } from 'reactstrap';
+import { NavLink } from 'react-router-dom';
 import logo from '../assets/bcbi-main-white.svg';
 
-
+// style={{color: 'white', textDecoration: 'none'}} activeStyle={{color: 'red', textDecoration: 'none'}}
 class HeaderNavigation extends Component{
 
   render(){
@@ -12,6 +13,14 @@ class HeaderNavigation extends Component{
           <img alt="BCBI Logo" src={logo} className="bcbi-logo mr-4" />
         </a>
         <h1 className="border-left text-light p-4 display-3">Solr Plant</h1>
+        <Nav className="ml-auto " navbar>
+          <NavItem>
+            <NavLink className="nav-link dark h3 mr-5" exact to="/">Main</NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink className="nav-link dark h3 mr-5" to="/about">About</NavLink>
+          </NavItem>
+        </Nav>
       </Navbar>
     );
   }

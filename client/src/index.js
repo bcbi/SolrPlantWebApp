@@ -8,9 +8,10 @@ import { Provider } from 'react-redux'
 import createSagaMiddleware from 'redux-saga'
 import mainReducer from './Reducers'
 import watchFetchSearchData from './Sagas.js'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/dist/css/bootstrap.css';
+// import 'bootstrap/dist/css/bootstrap.css';
+// import 'bootstrap/dist/css/bootstrap.css';
 
 //saga middleware
 const sagaMiddleware = createSagaMiddleware()

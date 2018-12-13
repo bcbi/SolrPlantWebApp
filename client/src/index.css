@@ -5,9 +5,24 @@
 }*/
 
 .App {
-  margin-top: 10px;
-  margin-left: 5%;
-  margin-right: 5%;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* .App {
+  text-align: center;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: space-between;
+} */
+
+footer {
+    height: 30px;
+    width: 100%;
+    text-align: center;
 }
 
 * {
@@ -23,6 +38,13 @@ input {
   width: 100%;
 }
 
+.nav-item {
+  padding: 10px;
+}
+
+.navbar .navbar-nav>li>a, .navbar .navbar-nav>li>a:hover {
+  color: #fff;
+}
 
 label {
     font-weight: normal !important;
@@ -70,7 +92,3 @@ h1,h2,h3 {
   margin-left: 70px
 }
 
-      /*const jumStyle = {
-            backgroundColor: 'rgb(255,2,17)',
-            color:'white'
-        }*/

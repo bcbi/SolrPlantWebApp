@@ -1,32 +1,88 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.bcbi-logo {
-  width: 16vw;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
+    text-align: center;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  footer {
+      height: 30px;
+      width: 100%;
+      text-align: center;
+  }
+  
+  .bcbi-logo {
+    width: 16vw;
+  }
+  
+  .main-content {
+    padding: 2vw 3vw;
+  }
+  
+  .nav-item {
+    padding: 10px;
+  }
+  
+  .form-section-border {
+    padding: 1vw;
+  }
+  
+  .button-row  {
+    padding: 1vw 0vw;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+  }
+  
+  .secondary-blue {
+    background-color: #3B5B8C;
+    color: white;
+  }
+  
+  .btn-blue {
+    color: #fff;
+    background-color: #3B5B8C;
+    border-color: #3B5B8C;
+  }
+  
+  .btn-blue:hover {
+    color: #fff;
+    background-color: #304a71;
+    border-color: #304a71;
+  }
+  
+  .btn-blue:focus, .btn-blue.focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+  }
+  
+  .btn-blue.disabled, .btn-blue:disabled {
+    color: #fff;
+    background-color: #58739c;
+    border-color: #58739c;
+  }
+  
+  .dark-grey-bg {
+    background-color: #6c757d;
+    color: white;
+  }
+  
+  a:hover {
+    color: #3B5B8C;
+  }
+  
+  .title-bar {
+    height: 50px;
+  }
+  
+  div .plot-desc {
+    border-color: #3B5B8C !important;
+    color: DarkSlateGray;
+  }
+  div .plot-desc p {
+    margin-top: 1rem;
+  }
+  
