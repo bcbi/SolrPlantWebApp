@@ -12,15 +12,9 @@ if ! git diff-index --quiet HEAD; then
     exit 1
 fi
 
-
-if TRAVIS; then
-   echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-   TAG=${TRAVIS_TAG}
-else
-   #Get the tag from 
-    GIT_REV=$(git log -n 1 --pretty=format:%h)
-    TAG="${GIT_REV}"
-fi
+#Get the tag from 
+GIT_REV=$(git log -n 1 --pretty=format:%h)
+TAG="${GIT_REV}"
 
 echo "Tag: ${TAG}"
 
