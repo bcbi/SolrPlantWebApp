@@ -152,7 +152,7 @@ Sometimes, Dependabot will not be able to fix a vulnerability because of conflic
 9. `git add -A`
 10. `git commit -m 'Update dependencies'`
 11. `git push origin yourinitials/update-dependencies`
-12. `cd ../.`
+12. `cd ../..`
 13. `rm -rf SolrPlantWebApp`
 14. Now go to `https://github.com/bcbi/SolrPlantWebApp/pull/new/yourinitials/update-dependencies` and create a new pull request.
 15. Wait for all of the checks to pass on your pull request.
