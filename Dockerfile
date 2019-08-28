@@ -1,5 +1,5 @@
 # Dockerfile used front end
-FROM node:10.16.3
+FROM node:10-alpine
 
 # ----------------------SolrPlant Web App------------------------------------
 # Create app directory
