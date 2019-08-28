@@ -1,6 +1,5 @@
 
 function search(text) {
-  // const url = "http://localhost:8081"
   const url = "https://bcbi.brown.edu/solrplant_api/"
   const params = {
     headers:{
@@ -9,6 +8,7 @@ function search(text) {
     body:text,
     method:"POST"
   }
+
   return fetch(url, params).then(checkStatus)
     .then(parseText);
 }

@@ -6,8 +6,6 @@ import ConnectedSearch from './components/Search'
 
 class App extends Component {
   render() {
-    console.log("Public URL");
-    console.log(`${process.env.PUBLIC_URL}`);
     return (
       <BrowserRouter basename={`${process.env.PUBLIC_URL}`}>
         <div className="App">

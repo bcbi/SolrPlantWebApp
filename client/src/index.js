@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
-// import { BrowserRouter} from 'react-router-dom'
 import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import createSagaMiddleware from 'redux-saga'
@@ -10,8 +9,6 @@ import mainReducer from './Reducers'
 import watchFetchSearchData from './Sagas.js'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
-// import 'bootstrap/dist/css/bootstrap.css';
-// import 'bootstrap/dist/css/bootstrap.css';
 
 //saga middleware
 const sagaMiddleware = createSagaMiddleware()
@@ -25,7 +22,7 @@ const store = createStore(
 sagaMiddleware.run(watchFetchSearchData)
 
 ReactDOM.render(
-<Provider store={store}>
+  <Provider store={store}>
     <App />
   </Provider>,
   document.getElementById('root')
