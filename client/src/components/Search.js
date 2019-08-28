@@ -29,34 +29,27 @@ class Search extends Component {
     this.invalidInput = this.invalidInput.bind(this)
 
     this.state = { searchValue: "", errorMsg: ""}
-
   }
-  onChange(e)
-  {
+
+  onChange(e) {
      this.setState({ searchValue: e.target.value });
   }
 
-  onClear(e)
-  {
+  onClear(e) {
     this.setState({ searchValue: "" });
   }
 
-  onSubmit(e)
-  {
+  onSubmit(e) {
     //prevents full page reload
     e.preventDefault();
-    if(this.state.searchValue ===""){
+    if(this.state.searchValue === ""){
       //do nothing for now
-    }
-    else {
-      console.log('====================================');
-      console.log("here");
-      console.log('====================================');
+    } else {
       this.props.fetchData({text: this.state.searchValue})
     }
   }
 
-  invalidInput(){
+  invalidInput() {
     let str = this.state.searchValue
     if(typeof(str)!=='string'){
       return true;
@@ -65,18 +58,16 @@ class Search extends Component {
       return null;
     }
 
-    for(var i=0;i<str.length;i++){
+    for(var i=0;i<str.length;i++) {
       let code = str.charCodeAt(i)
-        if(code>127){
+        if(code > 127){
             return true
         }
     }
     return false
   }
 
-
-  searchForm(){
-
+  searchForm() {
     const greyDivStyle = {
       backgroundColor: '#f6f6f6',
       padding: '50px',
@@ -89,8 +80,8 @@ class Search extends Component {
         <FormGroup>
           <Label> <h3> Enter search text </h3> </Label>
           <Input 
-            invalid = {this.invalidInput()}
-            value= {this.state.searchValue}
+            invalid ={this.invalidInput()}
+            value={this.state.searchValue}
             onChange={this.onChange}
             type="textarea"
             placeholder="E.g This sentence contains Raulfia serpentina, Mangifera indica and Arabidoopsis thaliana of plantae, glycine and fabaceae family in it"/>
@@ -107,11 +98,9 @@ class Search extends Component {
       </Form> 
       </div>
     );
-
   }
 
-  tableForm(i){
-  
+  tableForm(i) {
     let thisStyle = tableStyles[i%2]
     console.log("Results: ", i)
     let resultTable =(
@@ -139,16 +128,14 @@ class Search extends Component {
           <td>{this.props.searchData[i].uBiotaID}</td>
         </tr>
       </tbody>
-    </Table>
-    </div>
+      </Table>
+      </div>
     );
 
     return resultTable
-
   }
 
-  renderFullForm(){
-
+  renderFullForm() {
     let resultTables = []
 
     for (var i = 0; i < this.props.searchData.length; i++) {
@@ -166,27 +153,27 @@ class Search extends Component {
   }
 
   render() {
-     if( this.props.searchData.length !== 0){
+     if( this.props.searchData.length !== 0) {
       return (
         this.renderFullForm()
       );
-    }else{
+    } else{
       return (
         this.searchForm()
       );
     }
   }
- 
+
 }
 
-function mapStatetoProps(state){
+function mapStatetoProps(state) {
   return {
     searchData: state.searchData
   }
 }
 
 
-function mapDispatchToProps(dispatch){
+function mapDispatchToProps(dispatch) {
   return {
     fetchData: text => dispatch({type: 'FETCH_SEARCH_DATA', payload:text}),
   }
