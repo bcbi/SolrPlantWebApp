@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "http://localhost:3000/solrplant/",
   "dependencies": {
-    "bootstrap": "^4.5.1",
+    "bootstrap": "^4.5.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.1",
