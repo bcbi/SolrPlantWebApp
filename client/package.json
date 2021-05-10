@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "react-scripts": "^4.0.3",
-    "snyk": "^1.583.0"
+    "snyk": "^1.588.0"
   },
   "scripts": {
     "start": "react-scripts start",
